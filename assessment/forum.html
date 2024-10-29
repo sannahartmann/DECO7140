@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/css_reset.css" />
@@ -14,61 +14,118 @@
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <title>InShape: Forum</title>
+    <style>
+      .forum-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .forum-topic {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease-in-out;
+      }
+      .forum-topic:hover {
+        transform: translateY(-5px);
+      }
+      .topic-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .topic-title {
+        color: var(--action);
+        margin: 0;
+      }
+      .topic-meta {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+      .topic-content {
+        margin-bottom: 15px;
+      }
+      .topic-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .topic-replies {
+        font-weight: bold;
+        color: #28a745;
+      }
+      .new-topic-btn {
+        display: inline-block;
+        background-color: var(--action);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+      }
+      .new-topic-btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
   </head>
   <body>
-    <header>
+    <header role="banner">
       <div class="project-box-head">
-        <img src="images/logo.png" alt="logo" class="logo"/>
+        <img src="images/logo.png" alt="InShape logo" class="logo"/>
       </div>
-      <nav>
+      <nav role="navigation" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="workouts.html">Workouts</a>
         <a href="nutrition.html">Nutrition</a>
         <a href="progress.html">Progress</a>
       </nav>
     </header>
-    <main class="page-container">
+    <main class="page-container" role="main">
       <h1>Community Forum</h1>
       <p>Connect with other fitness enthusiasts:</p>
       <div class="forum-container">
-        <div class="forum-topic">
+        <article class="forum-topic">
           <div class="topic-header">
             <h3 class="topic-title">Best pre-workout meals?</h3>
             <span class="topic-meta">Posted by: User123 | 2 hours ago</span>
           </div>
           <p class="topic-content">What are your favorite meals to eat before a workout? I'm looking for something that provides energy without feeling too heavy.</p>
           <div class="topic-footer">
-            <span class="topic-replies">12 replies</span>
-            <a href="#" class="btn-action">View Discussion</a>
+            <span class="topic-replies" aria-label="12 replies to this topic">12 replies</span>
+            <a href="#" class="btn-action" aria-label="View discussion about best pre-workout meals">View Discussion</a>
           </div>
-        </div>
-        <div class="forum-topic">
+        </article>
+        <article class="forum-topic">
           <div class="topic-header">
             <h3 class="topic-title">Beginner's guide to weight lifting</h3>
             <span class="topic-meta">Posted by: FitnessPro | 1 day ago</span>
           </div>
           <p class="topic-content">I've put together a comprehensive guide for beginners starting their weight lifting journey. Check it out and let me know your thoughts!</p>
           <div class="topic-footer">
-            <span class="topic-replies">28 replies</span>
-            <a href="#" class="btn-action">View Discussion</a>
+            <span class="topic-replies" aria-label="28 replies to this topic">28 replies</span>
+            <a href="#" class="btn-action" aria-label="View discussion about beginner's guide to weight lifting">View Discussion</a>
           </div>
-        </div>
-        <div class="forum-topic">
+        </article>
+        <article class="forum-topic">
           <div class="topic-header">
             <h3 class="topic-title">How to stay motivated?</h3>
             <span class="topic-meta">Posted by: NewbieFitness | 3 days ago</span>
           </div>
           <p class="topic-content">I'm struggling to stay consistent with my workouts. Any tips on how to stay motivated and make fitness a habit?</p>
           <div class="topic-footer">
-            <span class="topic-replies">45 replies</span>
-            <a href="#" class="btn-action">View Discussion</a>
+            <span class="topic-replies" aria-label="45 replies to this topic">45 replies</span>
+            <a href="#" class="btn-action" aria-label="View discussion about staying motivated">View Discussion</a>
           </div>
-        </div>
-        <a href="#" class="new-topic-btn">Start a New Discussion</a>
+        </article>
+        <a href="#" class="new-topic-btn" role="button" aria-label="Start a new discussion topic">Start a New Discussion</a>
       </div>
     </main>
-    <footer>
-      <p>&copy; 2024 Your Name. All rights reserved.</p>
+    <footer role="contentinfo">
+      <p>&copy; 2024 InShape. All rights reserved.</p>
     </footer>
   </body>
 </html>

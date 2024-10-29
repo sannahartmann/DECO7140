@@ -18,11 +18,11 @@
     <script type="module" src="js/counter.js" defer></script>
   </head>
   <body>
-    <header>
+    <header role="banner">
       <div class="project-box-head">
-        <img src="images/logo.png" alt="logo" class="logo"/>
+        <img src="images/logo.png" alt="InShape logo" class="logo"/>
       </div>
-      <nav>
+      <nav role="navigation" aria-label="Main navigation">
         <a href="workouts.html">Workouts</a>
         <a href="nutrition.html">Nutrition</a>
         <a href="progress.html">Progress</a>
@@ -30,7 +30,7 @@
       </nav>
     </header>
 
-    <main class="page-container">
+    <main class="page-container" role="main">
       <p>
         Welcome to InShape. Choose what you are interested in to begin your
         health and wellness journey.
@@ -39,27 +39,27 @@
       <div class="projects-container">
         <div class="project-box">
           <img src="images/workouts.jpeg" alt="Man doing strength training" />
-          <a href="workouts.html">Workouts</a>
+          <a href="workouts.html" aria-label="Go to Workouts page">Workouts</a>
         </div>
         <div class="project-box">
           <img src="images/nutri.jpeg" alt="A nutritional breakfast" />
-          <a href="nutrition.html">Nutrition</a>
+          <a href="nutrition.html" aria-label="Go to Nutrition page">Nutrition</a>
         </div>
         <div class="project-box">
           <img src="images/progressW.avif" alt="A woman doing yoga" />
-          <a href="progress.html">Progress</a>
+          <a href="progress.html" aria-label="Go to Progress page">Progress</a>
         </div>
         <div class="project-box">
           <img src="images/forumW.avif" alt="Hands reaching for each other" />
-          <a href="forum.html">Forum</a>
+          <a href="forum.html" aria-label="Go to Forum page">Forum</a>
         </div>
       </div>
       <div>
-        <button class="btn-action">Sign up</button>
+        <button class="btn-action" aria-label="Sign up for InShape">Sign up</button>
       </div>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
       <p>&copy; 2024 Your Name. All rights reserved.</p>
     </footer>
   </body>

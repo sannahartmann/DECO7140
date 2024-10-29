@@ -7,12 +7,12 @@ const headers = new Headers();
 headers.append("student_number", studentNumber);
 headers.append("uqcloud_zone_id", uqcloudZoneId);
 
-function logPageLoadmessage() {
+export function logPageLoadmessage() {
   console.log("Page loaded");
 }
 
-function uploadProgress(formData, handleSuccess, handleError) {
-  fetch(
+export function uploadProgress(formData) {
+  return fetch(
     "https://damp-castle-86239-1b70ee448fbd.herokuapp.com/decoapi/genericproduct/",
     {
       method: "POST",
@@ -28,19 +28,11 @@ function uploadProgress(formData, handleSuccess, handleError) {
         });
       }
       return response.json();
-    })
-    .then((result) => {
-      console.log("Progress uploaded", result);
-      handleSuccess(result);
-    })
-    .catch((error) => {
-      console.error("Error", error.message);
-      handleError(error);
     });
 }
 
-function fetchProgress(displayProgress, handleGETError) {
-  fetch(
+export function fetchProgress() {
+  return fetch(
     "https://damp-castle-86239-1b70ee448fbd.herokuapp.com/decoapi/genericproduct/",
     {
       method: "GET",
@@ -53,18 +45,5 @@ function fetchProgress(displayProgress, handleGETError) {
         throw new Error("network response was not ok");
       }
       return response.json();
-    })
-    .then((data) => {
-      displayProgress(data);
-    })
-    .catch((error) => {
-      handleGETError(error);
     });
 }
-
-export {
-  logPageLoadmessage,
-  uploadProgress,
-  fetchProgress,
-  headers,
-};

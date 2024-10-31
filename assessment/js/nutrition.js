@@ -1,35 +1,41 @@
+// Import necessary functions from meal database module
 import { fetchRandomMeal, searchMeals, getRecipeDetails, getIngredients } from './mealdb.js';
 
+// Initializes the page with a random meal and sets up event listeners
 function initNutritionPage() {
-  fetchRandomMeal().then(displayMeal).catch(handleError);
+  fetchRandomMeal().then(displayMeal).catch(handleError); // Load a random meal on page load
 
   const searchForm = document.getElementById('searchForm');
-  searchForm.addEventListener('submit', handleSearch);
+  searchForm.addEventListener('submit', handleSearch); // Handle meal search on form submission
 
   const randomMealBtn = document.getElementById('randomMealBtn');
-  randomMealBtn.addEventListener('click', () => fetchRandomMeal().then(displayMeal).catch(handleError));
+  randomMealBtn.addEventListener('click', () => fetchRandomMeal().then(displayMeal).catch(handleError)); // Load new random meal
 
+  // Modal setup to display and close meal details
   const modal = document.getElementById('recipeModal');
   const closeBtn = document.getElementsByClassName('close')[0];
-  closeBtn.onclick = () => modal.style.display = "none";
+  closeBtn.onclick = () => modal.style.display = "none"; // Close modal on 'X' click
   window.onclick = (event) => {
     if (event.target == modal) {
-      modal.style.display = "none";
+      modal.style.display = "none"; // Close modal if clicking outside it
     }
   };
 }
 
+// Handles search form submission
 function handleSearch(event) {
-  event.preventDefault();
+  event.preventDefault(); // Prevents page reload on form submission
   const query = document.getElementById('searchInput').value;
-  searchMeals(query).then(displayMeals).catch(handleError);
+  searchMeals(query).then(displayMeals).catch(handleError); // Fetch meals matching query
 }
 
+// Displays a single meal in the designated container
 function displayMeal(meal) {
   const mealContainer = document.getElementById('mealContainer');
   mealContainer.innerHTML = createMealCard(meal);
 }
 
+// Displays a list of meals based on search results
 function displayMeals(meals) {
   const mealsContainer = document.getElementById('mealsContainer');
   if (!meals) {
@@ -44,6 +50,7 @@ function displayMeals(meals) {
   `;
 }
 
+// Creates an HTML card for a meal
 function createMealCard(meal) {
   return `
     <div class="recipe-card">
@@ -57,11 +64,13 @@ function createMealCard(meal) {
   `;
 }
 
+// Handles errors by logging and showing an alert
 function handleError(error) {
   console.error('Error:', error);
   alert('An error occurred. Please try again later.');
 }
 
+// Displays detailed recipe information in a modal
 window.showRecipe = function(mealId) {
   getRecipeDetails(mealId)
     .then(meal => {
@@ -86,4 +95,5 @@ window.showRecipe = function(mealId) {
     });
 };
 
+// Initializes the page once content is loaded
 document.addEventListener('DOMContentLoaded', initNutritionPage);
